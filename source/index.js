@@ -48,7 +48,8 @@ function showGraph(phones, company){
                             '<option>All</option>'+
                             '<option>Apple</option>'+
                             '<option>Samsung</option>'+
-                        '</select><br /><br />');
+                        '</select><br /><br />'+
+                        '<div class="diagram"></div>');
 
     d3.select('div.diagram')
         .selectAll('div.item')

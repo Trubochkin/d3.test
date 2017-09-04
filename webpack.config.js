@@ -1,17 +1,21 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PATHS = {
+    source: path.join(__dirname, 'source'),
+    build: path.join(__dirname, 'build')
+};
+
 module.exports = {
-    context: __dirname,
-    devtool: "source-map",
-    entry: "./js/d3-app.js",
+    entry: PATHS.source + "/index.js",
     output: {
-        path: __dirname + "/dist",
-        filename: "bundle.js"
+        path: PATHS.build,
+        filename: "[name].js"
     },
-    module:{
-        loaders: [
-            {test : /\.js/, loader: 'babel-loader', 'exclude': /node_modules/ },
-            {test : /\.css$/, loader: 'style!css!'}
-        ]
-    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'D3 test project'
+        })
+    ],
     devServer: {
         inline:true,
         port: 3000
