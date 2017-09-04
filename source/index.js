@@ -43,13 +43,17 @@ var phones = [ {name: 'iPhone 6', price: 64, company: 'Apple'},
     {name: 'iPad Air', price: 37, company: 'Apple'},
     {name: 'Samsung Galaxy Note', price: 36, company:'Samsung'}];
 
+$('body').on('change', 'select', function (e) {
+    console.log('change');
+    select();
+})
+
 function showGraph(phones, company){
-    $('.diagram').append('<select id="select" onchange="select()">'+
+    /*$('body').append('<select id="select" onchange="select()">'+
                             '<option>All</option>'+
                             '<option>Apple</option>'+
                             '<option>Samsung</option>'+
-                        '</select><br /><br />'+
-                        '<div class="diagram"></div>');
+                        '</select><br /><br />');*/
 
     d3.select('div.diagram')
         .selectAll('div.item')

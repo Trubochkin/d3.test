@@ -5,7 +5,7 @@ const PATHS = {
     build: path.join(__dirname, 'build')
 };
 
-module.exports = {
+const common = {
     entry: PATHS.source + "/index.js",
     output: {
         path: PATHS.build,
@@ -13,11 +13,30 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'D3 test project'
+            filename: 'index.html',
+            chunks: ['index'],
+            template: PATHS.source + '/index.html'
         })
-    ],
+    ]
+};
+
+const developmentConfig = {
     devServer: {
         inline:true,
-        port: 3000
-    },
-}
+        port: 3000,
+        stats: 'errors-only'
+    }
+};
+
+module.exports = (env) => {
+    if(env === 'dev') {
+        return Object.assign(
+            {},
+            common,
+            developmentConfig
+        );
+    }
+    if(env === 'prod'){
+        return common;
+    }
+};

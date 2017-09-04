@@ -9063,12 +9063,17 @@ var phones = [ {name: 'iPhone 6', price: 64, company: 'Apple'},
     {name: 'iPad Air', price: 37, company: 'Apple'},
     {name: 'Samsung Galaxy Note', price: 36, company:'Samsung'}];
 
+__WEBPACK_IMPORTED_MODULE_2_jquery___default()('body').on('change', 'select', function (e) {
+    console.log('change');
+    select();
+})
+
 function showGraph(phones, company){
-    __WEBPACK_IMPORTED_MODULE_2_jquery___default()('.diagram').append('<select id="select" onchange="select()">'+
+    /*$('body').append('<select id="select" onchange="select()">'+
                             '<option>All</option>'+
                             '<option>Apple</option>'+
                             '<option>Samsung</option>'+
-                        '</select><br /><br />');
+                        '</select><br /><br />');*/
 
     __WEBPACK_IMPORTED_MODULE_1_d3__["a" /* select */]('div.diagram')
         .selectAll('div.item')
